@@ -40,8 +40,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "Owolabiagbabiaka@gmail.com",
-    action: () => window.open("mailto:john.smith@example.com", "_blank"),
+    value: "Owolabiagbabiaka001@gmail.com",
+    action: () => window.open("Owolabiagbabiaka001@gmail.com", "_blank"),
   },
   {
     icon: Phone,
