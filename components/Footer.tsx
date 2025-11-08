@@ -60,7 +60,7 @@ const socialLinks = [
   {
     icon: AtSign,
     label: "email",
-    url: "mailto:owolabiagbabiaka@gmail.com",
+    url: "mailto:owolabiagbabiaka001@gmail.com",
     color: "hover:text-blue-500",
   },
 ];
@@ -68,8 +68,8 @@ const socialLinks = [
 const contactInfo = [
   {
     icon: Mail,
-    label: "Owolabiagbabiaka@gmail.com",
-    action: () => window.open("mailto:Owolabiagbabiaka@gmail.com", "_blank"),
+    label: "Owolabiagbabiaka001@gmail.com",
+    action: () => window.open("mailto:Owolabiagbabiaka001@gmail.com", "_blank"),
   },
   {
     icon: Phone,
@@ -78,7 +78,7 @@ const contactInfo = [
   },
   {
     icon: MapPin,
-    label: "Ikeja, Lagos State",
+    label: "Lagos, Nigeria",
     action: () =>
       window.open("https://maps.google.com/?q=San+Francisco,CA", "_blank"),
   },

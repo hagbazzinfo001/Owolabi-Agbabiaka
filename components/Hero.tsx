@@ -74,7 +74,7 @@ export default function Hero() {
               // ...existing code...
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "/CV-Hammed-Agbabiaka.pdf"; // make sure this file exists in the /public folder
+                link.href = "/CV-Agbabiaka Hammed..pdf"; // make sure this file exists in the /public folder
                 link.download = "CV - Hammed Agbabiaka.pdf";
                 document.body.appendChild(link); // Append first
                 link.click(); // Trigger the download

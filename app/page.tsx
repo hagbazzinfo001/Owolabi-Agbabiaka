@@ -5,13 +5,14 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
+// import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Education from "@/components/Education";
-import Testimonials from "@/components/Testimonials";
+// import Education from "@/components/Education";
+// import Testimonials from "@/components/Testimonials";
 // import Blog from '@/components/Blog';
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -29,14 +30,15 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Skills />
+        {/* <Skills /> */}
         <Projects />
-        <Education />
-        <Testimonials />
+        {/* <Education /> */}
+        {/* <Testimonials /> */}
         {/* <Blog /> */}
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

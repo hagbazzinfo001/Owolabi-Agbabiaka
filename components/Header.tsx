@@ -10,7 +10,7 @@ const carouselItems = [
     title: "Cloud/Devops Engineer",
     subtitle: "AWS • Terraform • CI/CD • Docker • Kubernetes • Linux and more",
     background:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=300&fit=crop",
+      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762555084/IMG_5556_1_siciju.jpg?w=1200&h=300&fit=crop",
   },
   {
     title: "Frontend Developer",
@@ -63,7 +63,7 @@ export default function Header() {
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
-    { label: "Education", href: "#education" },
+    // { label: "Education", href: "#education" },
     // { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];

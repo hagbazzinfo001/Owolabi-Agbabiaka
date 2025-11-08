@@ -75,13 +75,13 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    url: "https://github.com/johnsmith",
+    url: "https://github.com/hagbazzinfo001",
     color: "hover:text-gray-900 dark:hover:text-white",
   },
   {
     icon: Twitter,
     label: "Twitter",
-    url: "https://twitter.com/johnsmith",
+    url: "https://twitter.com/",
     color: "hover:text-blue-400",
   },
 ];
@@ -409,7 +409,7 @@ export default function Contact() {
                         Currently Available
                       </h3>
                       <p className="text-green-700 dark:text-green-300 text-sm">
-                        Accepting new projects for Q1 2024
+                        Accepting new projects for {new Date().getFullYear()}
                       </p>
                     </div>
                   </div>
