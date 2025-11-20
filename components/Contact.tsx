@@ -171,7 +171,22 @@ export default function Contact() {
         timestamp: serverTimestamp(),
         status: "new",
       });
+      // Also send to FormSubmit
+      const formDataObj = new FormData();
+      formDataObj.append("name", formData.name);
+      formDataObj.append("email", formData.email);
+      formDataObj.append("company", formData.company);
+      formDataObj.append("projectType", formData.projectType);
+      formDataObj.append("message", formData.message);
+      formDataObj.append("_captcha", "false");
+      formDataObj.append("_next", "https://owolabi-agbabiaka.vercel.app/");
 
+      await fetch("https://formsubmit.co/agbabiakahammed003@gmail.com", {
+        method: "POST",
+        body: formDataObj,
+      });
+
+      setShowSuccessModal(true);
       console.log("Document written with ID: ", docRef.id);
 
       // Show success modal
@@ -234,6 +249,13 @@ export default function Contact() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value="https://owolabi-agbabiaka.vercel.app/"
+                  />
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -247,6 +269,7 @@ export default function Contact() {
                         }
                         placeholder="Your full name"
                         required
+                        name=" Full Name"
                         className="w-full"
                       />
                     </div>
@@ -263,6 +286,7 @@ export default function Contact() {
                         placeholder="your@email.com"
                         required
                         className="w-full"
+                        name="Email Address"
                       />
                     </div>
                   </div>
@@ -279,6 +303,7 @@ export default function Contact() {
                       }
                       placeholder="Your company name"
                       className="w-full"
+                      name="Company Name"
                     />
                   </div>
 
@@ -291,6 +316,7 @@ export default function Contact() {
                       onValueChange={(value) =>
                         handleInputChange("projectType", value)
                       }
+                      name="Project Type"
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select project type" />
@@ -318,6 +344,7 @@ export default function Contact() {
                       rows={5}
                       required
                       className="w-full"
+                      name="Project Details"
                     />
                   </div>
 

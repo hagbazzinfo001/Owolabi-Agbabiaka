@@ -1,204 +1,85 @@
-// "use client";
+"use client";
 
-// import { motion } from "framer-motion";
-// import { useState, useEffect } from "react";
-// import {
-//   PieChart,
-//   Pie,
-//   Cell,
-//   ResponsiveContainer,
-//   BarChart,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   Tooltip,
-// } from "recharts";
-// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Code, Coffee, Users, Award } from "lucide-react";
+import { FaAws, FaDocker, FaReact, FaGithub, FaNode } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFirebase,
+  SiNginx,
+  SiKubernetes,
+  SiTerraform,
+  SiApache,
+  SiTypescript,
+} from "react-icons/si";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+const skills = [
+  { name: "AWS", icon: FaAws, color: "text-orange-500" },
+  { name: "Docker", icon: FaDocker, color: "text-blue-500" },
+  { name: "React", icon: FaReact, color: "text-cyan-400" },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "text-gray-900 dark:text-white",
+  },
+  { name: "GitHub", icon: FaGithub, color: "text-gray-800 dark:text-white" },
+  { name: "TailwindCSS", icon: SiTailwindcss, color: "text-cyan-500" },
+  { name: "Firebase", icon: SiFirebase, color: "text-yellow-500" },
+  { name: "Nginx", icon: SiNginx, color: "text-green-600" },
+  { name: "Apache", icon: SiApache, color: "text-black-500" },
+  { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-600" },
+  { name: "Terraform", icon: SiTerraform, color: "text-purple-600" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
+];
 
-// const skillsData = [
-//   { name: "JavaScript", level: 95, color: "#F7DF1E" },
-//   { name: "React", level: 90, color: "#61DAFB" },
-//   { name: "Node.js", level: 85, color: "#339933" },
-//   { name: "TypeScript", level: 88, color: "#3178C6" },
-//   { name: "Python", level: 80, color: "#3776AB" },
-//   { name: "SQL", level: 75, color: "#336791" },
-// ];
+const stats = [
+  { icon: Code, label: "Projects Completed", value: 30, suffix: "+" },
+  // { icon: Coffee, label: "Cups of Coffee", value: 1000, suffix: "+" },
+  { icon: Users, label: "Happy Clients", value: 20, suffix: "+" },
+  { icon: Award, label: "Years Experience", value: 2, suffix: "+" },
+];
+export default function Skills() {
+  const [isClient, setIsClient] = useState(false);
 
-// const categoryData = [
-//   { name: "Frontend", value: 40, fill: "#3B82F6" },
-//   { name: "Backend", value: 35, fill: "#10B981" },
-//   { name: "DevOps", value: 15, fill: "#F59E0B" },
-//   { name: "Design", value: 10, fill: "#EF4444" },
-// ];
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-// const toolsWithIcons = [
-//   { name: "React", icon: "⚛️", category: "Frontend" },
-//   { name: "Next.js", icon: "▲", category: "Frontend" },
-//   { name: "Vue.js", icon: "💚", category: "Frontend" },
-//   { name: "TypeScript", icon: "🔷", category: "Language" },
-//   { name: "JavaScript", icon: "🟨", category: "Language" },
-//   { name: "Node.js", icon: "🟢", category: "Backend" },
-//   { name: "Express.js", icon: "🚂", category: "Backend" },
-//   { name: "MongoDB", icon: "🍃", category: "Database" },
-//   { name: "PostgreSQL", icon: "🐘", category: "Database" },
-//   { name: "Docker", icon: "🐳", category: "DevOps" },
-//   { name: "AWS", icon: "☁️", category: "Cloud" },
-//   { name: "Git", icon: "📝", category: "Tools" },
-//   { name: "Figma", icon: "🎨", category: "Design" },
-//   { name: "Tailwind CSS", icon: "💨", category: "Styling" },
-//   { name: "Python", icon: "🐍", category: "Language" },
-//   { name: "GraphQL", icon: "🔗", category: "API" },
-//   { name: "Redis", icon: "🔴", category: "Database" },
-//   { name: "Kubernetes", icon: "⚙️", category: "DevOps" },
-// ];
-
-// const categories = Array.from(
-//   new Set(toolsWithIcons.map((tool) => tool.category))
-// );
-
-// export default function Skills() {
-//   const [isClient, setIsClient] = useState(false);
-
-//   useEffect(() => {
-//     setIsClient(true);
-//   }, []);
-
-//   return (
-//     <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-800">
-//       <div className="container mx-auto px-6">
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="text-center mb-16"
-//         >
-//           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-//             Skills & Expertise
-//           </h2>
-//           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-//             A comprehensive overview of my technical skills and proficiency
-//             levels
-//           </p>
-//         </motion.div>
-
-//         <div className="grid lg:grid-cols-1 gap-12 mb-12">
-//           {/* Skills Chart */}
-//           <motion.div
-//             initial={{ opacity: 0, x: -30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.8 }}
-//             viewport={{ once: true }}
-//           >
-//             <Card className="min-h-[350px]">
-//               <CardHeader>
-//                 <CardTitle>Technical Proficiency</CardTitle>
-//               </CardHeader>
-//               <CardContent>
-//                 {isClient ? (
-//                   <ResponsiveContainer width="100%" height={300}>
-//                     <BarChart
-//                       data={skillsData}
-//                       margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-//                     >
-//                       <XAxis
-//                         dataKey="name"
-//                         tick={{ fontSize: 12 }}
-//                         angle={-45}
-//                         textAnchor="end"
-//                         height={80}
-//                       />
-//                       <YAxis />
-//                       <Tooltip
-//                         formatter={(value) => [`${value}%`, "Proficiency"]}
-//                         labelStyle={{ color: "#374151" }}
-//                         contentStyle={{
-//                           backgroundColor: "#f9fafb",
-//                           border: "1px solid #e5e7eb",
-//                           borderRadius: "8px",
-//                         }}
-//                       />
-//                       <Bar
-//                         dataKey="level"
-//                         fill="#3B82F6"
-//                         radius={[4, 4, 0, 0]}
-//                         name="Proficiency Level"
-//                       />
-//                     </BarChart>
-//                   </ResponsiveContainer>
-//                 ) : (
-//                   <div className="w-full h-[300px] flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
-//                     <div className="text-center">
-//                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-//                       <p className="text-gray-500 dark:text-gray-400">
-//                         Loading chart...
-//                       </p>
-//                     </div>
-//                   </div>
-//                 )}
-//               </CardContent>
-//             </Card>
-//           </motion.div>
-
-//           {/* Skills Distribution */}
-//         </div>
-
-//         {/* Tools & Technologies - Categories in Row Grid */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <Card>
-//             <CardHeader>
-//               <CardTitle>Tools & Technologies</CardTitle>
-//             </CardHeader>
-//             <CardContent>
-//               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-//                 {categories.map((category, categoryIndex) => (
-//                   <motion.div
-//                     key={category}
-//                     initial={{ opacity: 0, y: 20 }}
-//                     whileInView={{ opacity: 1, y: 0 }}
-//                     transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-//                     viewport={{ once: true }}
-//                     className="space-y-4"
-//                   >
-//                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center pb-2 border-b border-gray-200 dark:border-gray-600">
-//                       {category}
-//                     </h3>
-//                     <div className="grid grid-cols-1 gap-3">
-//                       {toolsWithIcons
-//                         .filter((tool) => tool.category === category)
-//                         .map((tool, index) => (
-//                           <motion.div
-//                             key={tool.name}
-//                             initial={{ opacity: 0, scale: 0.8 }}
-//                             whileInView={{ opacity: 1, scale: 1 }}
-//                             transition={{ delay: index * 0.05, duration: 0.3 }}
-//                             viewport={{ once: true }}
-//                           >
-//                             <Badge
-//                               variant="secondary"
-//                               className="w-full px-3 py-2 text-sm hover:bg-blue-100 hover:text-blue-800 transition-colors cursor-pointer group justify-center"
-//                             >
-//                               <span className="text-lg mr-2 group-hover:scale-110 transition-transform">
-//                                 {tool.icon}
-//                               </span>
-//                               <span className="truncate">{tool.name}</span>
-//                             </Badge>
-//                           </motion.div>
-//                         ))}
-//                     </div>
-//                   </motion.div>
-//                 ))}
-//               </div>
-//             </CardContent>
-//           </Card>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// }
+  return (
+    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-800 mt-10">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center ">
+            Technical Skills
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              >
+                <skill.icon className={`w-12 h-12 mb-3 ${skill.color}`} />
+                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 text-center">
+                  {skill.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

@@ -74,15 +74,33 @@ export default function Hero() {
               // ...existing code...
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "/CV-Agbabiaka Hammed..pdf"; // make sure this file exists in the /public folder
-                link.download = "CV - Hammed Agbabiaka.pdf";
+                link.href = "/Owolabi-Agbabiaka-DevOps.pdf"; // make sure this file exists in the /public folder
+                link.download = "Owolabi-Agbabiaka-DevOps.pdf";
                 document.body.appendChild(link); // Append first
                 link.click(); // Trigger the download
                 document.body.removeChild(link); // Then clean up
               }}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download CV
+              Download DevOps CV
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-8 py-3"
+              // ...existing code...
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/Hammed-Agbabiaka-Frontend.pdf"; // make sure this file exists in the /public folder
+                link.download = "Hammed-Agbabiaka-Frontend.pdf";
+                document.body.appendChild(link); // Append first
+                link.click(); // Trigger the download
+                document.body.removeChild(link); // Then clean up
+              }}
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Frontend CV
             </Button>
           </motion.div>
 

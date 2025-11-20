@@ -190,34 +190,6 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center mt-20">
-          Technical Skills
-        </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-            >
-              <skill.icon className={`w-12 h-12 mb-3 ${skill.color}`} />
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 text-center">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

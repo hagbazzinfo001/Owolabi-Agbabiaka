@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-// import Skills from "@/components/Skills";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 // import Education from "@/components/Education";
 // import Testimonials from "@/components/Testimonials";
@@ -30,7 +30,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        {/* <Skills /> */}
+        <Skills />
         <Projects />
         {/* <Education /> */}
         {/* <Testimonials /> */}
