@@ -126,7 +126,7 @@ export default function About() {
           >
             <img
               // src="https://i.postimg.cc/yxwg4krP/IMG-0667-removebg.png"
-              src="https://res.cloudinary.com/dr0qnjp1s/image/upload/v1763911358/IMG_5324-removebg_ckok4r.png"
+              src="https://res.cloudinary.com/dr0qnjp1s/image/upload/v1763911991/IMG_5324-removebg_j0dqy4.png"
               alt="About me"
               className="rounded-2xl shadow-2xl"
             />
