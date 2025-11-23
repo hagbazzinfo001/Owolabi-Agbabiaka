@@ -125,7 +125,8 @@ export default function About() {
             viewport={{ once: true }}
           >
             <img
-              src="https://i.postimg.cc/yxwg4krP/IMG-0667-removebg.png"
+              // src="https://i.postimg.cc/yxwg4krP/IMG-0667-removebg.png"
+              src="https://res.cloudinary.com/dr0qnjp1s/image/upload/v1763911358/IMG_5324-removebg_ckok4r.png"
               alt="About me"
               className="rounded-2xl shadow-2xl"
             />
