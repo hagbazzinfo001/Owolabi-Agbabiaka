@@ -32,7 +32,7 @@ const projects = [
       "Tailwind CSS",
     ],
     id: 1,
-    liveUrl: "hhttps://scene-breakdown.vercel.app/",
+    liveUrl: "https://scene-breakdown.vercel.app/",
     githubUrl: "https://github.com/hagbazzinfo001/Scene-Breakdown.git",
     featured: false,
     stats: { stars: 145, forks: 32, users: "10K+" },
