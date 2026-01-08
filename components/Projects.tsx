@@ -11,16 +11,17 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import ProjectModal from "@/components/ProjectModal";
 
 const projects = [
   {
-    title: "Rashford3D",
-    description:
-      "An end-to-end electronic e-commerce platform with product listings, cart functionality, authentication, and checkout flow. Includes product filters, reviews, and category pages.",
+    title: "SceneBreak",
+    description:"Introducing SceneBreak AI, a web app that uses OpenAI GPT-4o Mini to analyze film and theatre scenes in seconds. It breaks down characters, settings, themes, emotions, and visual/technical elements instantly — something filmmakers usually do manually. SceneBreak AI helps writers, directors, and students quickly understand scenes, inspiring creativity and saving time in the filmmaking process.",
     category: "Web Development",
-    tags: ["React", "TypeScript", "Tailwind CSS", "e-commerce"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "AI", "OpenAI", "Supabase"],
     image:
-      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1753390318/WhatsApp_Image_2025-06-14_at_09.48.56_cd11a714_yobdik.jpg",
+      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1767856167/Screenshot_63_wwiwyr.png",
     completedDate: "On-going",
     technologies: [
       "React",
@@ -31,8 +32,8 @@ const projects = [
       "Tailwind CSS",
     ],
     id: 1,
-    liveUrl: "https://rashford3-d.vercel.app/",
-    githubUrl: "https://github.com/hagbazzinfo001/Rashford3D",
+    liveUrl: "hhttps://scene-breakdown.vercel.app/",
+    githubUrl: "https://github.com/hagbazzinfo001/Scene-Breakdown.git",
     featured: false,
     stats: { stars: 145, forks: 32, users: "10K+" },
   },
@@ -191,6 +192,20 @@ const projects = [
 ];
 
 export default function Projects() {
+
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+const openModal = (project: any) => {
+  setSelectedProject(project);
+  setIsModalOpen(true);
+};
+
+const closeModal = () => {
+  setIsModalOpen(false);
+  setSelectedProject(null);
+};
+
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
 
@@ -232,7 +247,9 @@ export default function Projects() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="group h-full hover:shadow-lg transition-all duration-300">
+                <Card   onClick={() => openModal(project)}
+
+                className="group h-full hover:shadow-lg transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <img
                       src={project.image}
@@ -245,7 +262,10 @@ export default function Projects() {
                         <Button
                           size="sm"
                           className="bg-white/90 text-gray-900 hover:bg-white"
-                          onClick={() => window.open(project.liveUrl, "_blank")}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.liveUrl, "_blank")
+                          }}
                         >
                           <ExternalLink className="h-3 w-3" />
                         </Button>
@@ -253,9 +273,10 @@ export default function Projects() {
                           size="sm"
                           variant="outline"
                           className="bg-white/20 text-white border-white/30 hover:bg-white/30"
-                          onClick={() =>
+                          onClick={(e) => {
+                            e.stopPropagation();
                             window.open(project.githubUrl, "_blank")
-                          }
+                          }}
                         >
                           <Github className="h-3 w-3" />
                         </Button>
@@ -448,6 +469,12 @@ export default function Projects() {
           </Card>
         </motion.div>
       </div>
+      <ProjectModal
+  project={selectedProject}
+  open={isModalOpen}
+  onClose={closeModal}
+/>
+
     </section>
   );
 }
