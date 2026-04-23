@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, ExternalLink, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -71,36 +71,20 @@ export default function Hero() {
               variant="outline"
               size="lg"
               className="px-8 py-3"
-              // ...existing code...
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/Owolabi-Agbabiaka-DevOps.pdf"; // make sure this file exists in the /public folder
-                link.download = "Owolabi-Agbabiaka-DevOps.pdf";
-                document.body.appendChild(link); // Append first
-                link.click(); // Trigger the download
-                document.body.removeChild(link); // Then clean up
-              }}
+              onClick={() => window.open("https://flowcv.com/resume/sjmmsts7kghd", "_blank")}
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download DevOps CV
+              <ExternalLink className="mr-2 h-5 w-5" />
+              View DevOps CV
             </Button>
 
             <Button
               variant="outline"
               size="lg"
               className="px-8 py-3"
-              // ...existing code...
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/Hammed-Agbabiaka-Frontend.pdf"; // make sure this file exists in the /public folder
-                link.download = "Hammed-Agbabiaka-Frontend.pdf";
-                document.body.appendChild(link); // Append first
-                link.click(); // Trigger the download
-                document.body.removeChild(link); // Then clean up
-              }}
+              onClick={() => window.open("https://flowcv.com/resume/pi2qqko4jjsd", "_blank")}
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Frontend CV
+              <ExternalLink className="mr-2 h-5 w-5" />
+              View Frontend CV
             </Button>
           </motion.div>
 

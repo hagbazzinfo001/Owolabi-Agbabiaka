@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Code, Coffee, Users, Award } from "lucide-react";
-import { FaAws, FaDocker, FaReact, FaGithub, FaNode } from "react-icons/fa";
+import { FaAws, FaDocker, FaReact, FaGithub, FaNode, FaLinux, FaServer } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -13,25 +13,40 @@ import {
   SiTerraform,
   SiApache,
   SiTypescript,
+  SiVercel,
+  SiNutanix,
+  SiGithubactions,
+  SiGooglecloud,
+  SiGrafana,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 const skills = [
   { name: "AWS", icon: FaAws, color: "text-orange-500" },
   { name: "Docker", icon: FaDocker, color: "text-blue-500" },
+  { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-600" },
+  { name: "Terraform", icon: SiTerraform, color: "text-purple-600" },
+  { name: "Linux", icon: FaLinux, color: "text-gray-800 dark:text-white" },
+  { name: "Nagios", icon: FaServer, color: "text-gray-800 dark:text-white" },
+  { name: "GitHub Actions", icon: SiGithubactions, color: "text-gray-800 dark:text-white" },
+  { name: "Nutanix HCI", icon: SiNutanix, color: "text-gray-800 dark:text-white" },
+  { name: "Apache", icon: SiApache, color: "text-black-500" },
   { name: "React", icon: FaReact, color: "text-cyan-400" },
+  { name: "GitHub", icon: FaGithub, color: "text-gray-800 dark:text-white" },
+  { name: "Nginx", icon: SiNginx, color: "text-green-600" },
+  { name: 'Vercel', icon: SiVercel, color: 'text-gray-900 dark:text-white' },
+  { name: 'Google Cloud', icon: SiGooglecloud, color: 'text-gray-900 dark:text-white' },
+  { name: 'Azure', icon: VscAzure, color: 'text-blue-500' },
+  { name: 'Grafana', icon: SiGrafana, color: 'text-gray-900 dark:text-white' },
   {
     name: "Next.js",
     icon: SiNextdotjs,
     color: "text-gray-900 dark:text-white",
   },
-  { name: "GitHub", icon: FaGithub, color: "text-gray-800 dark:text-white" },
   { name: "TailwindCSS", icon: SiTailwindcss, color: "text-cyan-500" },
   { name: "Firebase", icon: SiFirebase, color: "text-yellow-500" },
-  { name: "Nginx", icon: SiNginx, color: "text-green-600" },
-  { name: "Apache", icon: SiApache, color: "text-black-500" },
-  { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-600" },
-  { name: "Terraform", icon: SiTerraform, color: "text-purple-600" },
+
   { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
 ];
 

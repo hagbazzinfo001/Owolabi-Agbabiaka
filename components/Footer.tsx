@@ -26,9 +26,11 @@ const quickLinks = [
 
 const services = [
   { label: "Cloud Computing", href: "#contact" },
+  { label: "DevOps Engineering", href: "#contact" },
+  { label: "Data Science & Analytics", href: "#contact" },
+  { label: "AI / Machine Learning", href: "#contact" },
   { label: "Web Development", href: "#contact" },
-  { label: "SEO Optimization", href: "#contact" },
-  { label: "Consulting", href: "#contact" },
+  { label: "Cloud Consulting", href: "#contact" },
 ];
 
 const resources = [
@@ -42,7 +44,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    url: "https://linkedin.com/in/owolabi-agbabiaka",
+    url: "https://www.linkedin.com/in/owolabi-agbabiaka/",
     color: "hover:text-blue-600",
   },
   {
@@ -53,8 +55,8 @@ const socialLinks = [
   },
   {
     icon: Twitter,
-    label: "Twitter",
-    url: "https://twitter.com/johnsmith",
+    label: "X",
+    url: "https://x.com/hagbazz001?s=21",
     color: "hover:text-blue-400",
   },
   {

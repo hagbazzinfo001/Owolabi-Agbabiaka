@@ -15,9 +15,54 @@ import { useState } from "react";
 import ProjectModal from "@/components/ProjectModal";
 
 const projects = [
+
+  {
+    id: 6,
+    title: "Cloud Infrastructure Automation",
+    description:
+      "Automated deployment of a web application on AWS EC2 instances using Ansible and NGINX, with an Application Load Balancer (ALB). Features dynamic HTML templates that display EC2 instance metadata (IP, hostname, and availability zone) via IMDSv2.",
+    image:
+      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563429/absiblwe_csb0fa.jpg?w=600&h=400&fit=crop",
+    technologies: ["AWS", "Ansible", "NGINX", "Load Balancer"],
+    liveUrl: "https://fitness-track.example.com",
+    githubUrl: "",
+    featured: true,
+    stats: { stars: 92, forks: 28, users: "3K+" },
+  },
+  {
+    id: 7,
+    title: "Multi-Region Provisioning and Infrastructure as Code (IaC)",
+    description:
+      " It demonstrates how to manage multi-region deployments, handle multiple providers, and output key information such as public IP addresses.",
+    image:
+      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563438/iac_atfong.png?w=600&h=400&fit=crop",
+    technologies: ["AWS", "Terraform", "AMI"],
+
+    liveUrl:
+      "https://github.com/hagbazzinfo001/Multi-Region-EC2-Instance-Deployment-with-Terraform",
+    githubUrl:
+      "https://github.com/hagbazzinfo001/Multi-Region-EC2-Instance-Deployment-with-Terraform",
+    featured: true,
+    stats: { stars: 92, forks: 28, users: "3K+" },
+  },
+  {
+    id: 9,
+    title: "DevOps Monitoring System",
+    description:
+      " Bash automation script to monitor system memory (RAM) usage on a Linux server, log the data hourly, and generate daily reports. ",
+    image:
+      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563438/mmm_uhjc4a.png?w=600&h=400&fit=crop",
+    technologies: ["Linux Server", "Bash shell", "Postfix"],
+    liveUrl:
+      "https://github.com/hagbazzinfo001/System-Memory-Monitoring-and-Daily-Notification-Script",
+    githubUrl:
+      "https://github.com/hagbazzinfo001/System-Memory-Monitoring-and-Daily-Notification-Script",
+    featured: true,
+    stats: { stars: 92, forks: 28, users: "3K+" },
+  },
   {
     title: "SceneBreak",
-    description:"Introducing SceneBreak AI, a web app that uses OpenAI GPT-4o Mini to analyze film and theatre scenes in seconds. It breaks down characters, settings, themes, emotions, and visual/technical elements instantly — something filmmakers usually do manually. SceneBreak AI helps writers, directors, and students quickly understand scenes, inspiring creativity and saving time in the filmmaking process.",
+    description: "Introducing SceneBreak AI, a web app that uses OpenAI GPT-4o Mini to analyze film and theatre scenes in seconds. It breaks down characters, settings, themes, emotions, and visual/technical elements instantly — something filmmakers usually do manually. SceneBreak AI helps writers, directors, and students quickly understand scenes, inspiring creativity and saving time in the filmmaking process.",
     category: "Web Development",
     tags: ["React", "TypeScript", "Tailwind CSS", "AI", "OpenAI", "Supabase"],
     image:
@@ -126,34 +171,6 @@ const projects = [
     githubUrl: "https://github.com/hagbazzinfo001/testProject/",
   },
   {
-    id: 6,
-    title: "Cloud Infrastructure Automation",
-    description:
-      "Automated deployment of a web application on AWS EC2 instances using Ansible and NGINX, with an Application Load Balancer (ALB). Features dynamic HTML templates that display EC2 instance metadata (IP, hostname, and availability zone) via IMDSv2.",
-    image:
-      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563429/absiblwe_csb0fa.jpg?w=600&h=400&fit=crop",
-    technologies: ["AWS", "Ansible", "NGINX", "", "Load Balancer"],
-    liveUrl: "https://fitness-track.example.com",
-    githubUrl: "",
-    featured: true,
-    stats: { stars: 92, forks: 28, users: "3K+" },
-  },
-  {
-    id: 7,
-    title: "multi-region provisioning and Infrastructure as Code (IaC)",
-    description:
-      " It demonstrates how to manage multi-region deployments, handle multiple providers, and output key information such as public IP addresses.",
-    image:
-      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563438/iac_atfong.png?w=600&h=400&fit=crop",
-    technologies: ["AWS", "Terraform", "", "AMI"],
-    liveUrl:
-      "https://github.com/hagbazzinfo001/Multi-Region-EC2-Instance-Deployment-with-Terraform",
-    githubUrl:
-      "https://github.com/hagbazzinfo001/Multi-Region-EC2-Instance-Deployment-with-Terraform",
-    featured: true,
-    stats: { stars: 92, forks: 28, users: "3K+" },
-  },
-  {
     id: "8",
     title: "Eco-Shop",
     description:
@@ -174,37 +191,23 @@ const projects = [
     githubUrl: "https://github.com/hagbazzinfo001/Ecosystem",
     stats: { stars: 92, forks: 28, users: "3K+" },
   },
-  {
-    id: 9,
-    title: "DevOps Monitoring System",
-    description:
-      " Bash automation script to monitor system memory (RAM) usage on a Linux server, log the data hourly, and generate daily reports. ",
-    image:
-      "https://res.cloudinary.com/dr0qnjp1s/image/upload/v1762563438/mmm_uhjc4a.png?w=600&h=400&fit=crop",
-    technologies: ["Linux Server", "Bash shell", "Postfix"],
-    liveUrl:
-      "https://github.com/hagbazzinfo001/System-Memory-Monitoring-and-Daily-Notification-Script",
-    githubUrl:
-      "https://github.com/hagbazzinfo001/System-Memory-Monitoring-and-Daily-Notification-Script",
-    featured: true,
-    stats: { stars: 92, forks: 28, users: "3K+" },
-  },
+
 ];
 
 export default function Projects() {
 
   const [selectedProject, setSelectedProject] = useState<any>(null);
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const openModal = (project: any) => {
-  setSelectedProject(project);
-  setIsModalOpen(true);
-};
+  const openModal = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
-const closeModal = () => {
-  setIsModalOpen(false);
-  setSelectedProject(null);
-};
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
@@ -247,9 +250,9 @@ const closeModal = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card   onClick={() => openModal(project)}
+                <Card onClick={() => openModal(project)}
 
-                className="group h-full hover:shadow-lg transition-all duration-300">
+                  className="group h-full hover:shadow-lg transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <img
                       src={project.image}
@@ -470,10 +473,10 @@ const closeModal = () => {
         </motion.div>
       </div>
       <ProjectModal
-  project={selectedProject}
-  open={isModalOpen}
-  onClose={closeModal}
-/>
+        project={selectedProject}
+        open={isModalOpen}
+        onClose={closeModal}
+      />
 
     </section>
   );
